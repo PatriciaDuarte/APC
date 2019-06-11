@@ -1,29 +1,24 @@
-//Aluna:Patrícia Duarte da Silva
-//Exercicio3
+//Nome:Patrícia Duarte da Silva
+//Exercício 3
 #include<stdio.h>
 #include<stdlib.h>
-#include<locale.h>
 
-int n(int n);
-
-int n(int n)
+void troca(int *a1, int *b1);
+void troca(int *a1, int *b1)
 {
-	return (n-1); 
+	int temp = 5;
+	temp = *a1;
+	*a1 = *b1;
+	*b1 = temp;
+	
+	printf("\ntemp = %d, *x = %d, *y = %d.",temp,*a1,*b1);
 }
-
 main()
 {
-	int numero;
-	int i;
-	
-	setlocale(LC_ALL,"Portuguese");
-	
-	printf("Digite um numero inteiro:");
-	scanf("%d",&numero);
-	
-	printf("\nImprimindo de 0 a N:\n");
-	for(i=1;i<=numero;i++)
-	{
-		printf("%d\n",n(i));
-	}
+	int a,b;
+	printf("Entre cm o primeiro valor:");
+	scanf("%d",&a);
+	printf("Entre cm o segundo valor:");
+	scanf("%d",&b);
+	troca(&a,&b);
 }

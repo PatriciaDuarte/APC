@@ -1,31 +1,49 @@
-//Aluna:Patrícia Duarte da Silva
-//Exercicio7
+//Patricia Duarte da Silva
+//Ex7
 #include<stdio.h>
 #include<stdlib.h>
-#include<locale.h>        
-#include<string.h>
+#include<locale.h>
 
-#define TAMANHO 25
+#define TAMANHO 5
 
-int tamString(char s[]);
+void ordena(int *vetor);
 
-int tamString(char s[])
+void ordena(int *vetor)
 {
-	if(s[0]=='\0') return 0;
-	else 
-	return 1+tamString(&s[1]);
+	int i,j,temp;
+	
+	for(i=0;i<TAMANHO;i++)
+	{
+		for(j=(i+1);j<TAMANHO;j++)
+		{
+			if(*(vetor+j) < *(vetor+i))	
+			{
+				temp  = *(vetor+i);
+				*(vetor+i) = *(vetor+j);
+				*(vetor+j) = temp;
+			}
+		}	
+	}
+	printf("\nVetor ordenado:\n");
+	for(i=0;i<TAMANHO;i++)
+	{
+		printf("%d  ",*(vetor+i));
+	}
+	printf("\n\n");
 }
 
 main()
 {
-	setlocale(LC_ALL,"Portuguese");
-	char caractere[TAMANHO];
+	int vet[TAMANHO];
 	
+	setlocale(LC_ALL,"Portuguese")	;
 	
-	printf("Digite alguns caracteres sem dar espaço:");
-	scanf("%s",caractere);
-	
-	printf("\nQuantidade de caracteres:%d\n\n",tamString(caractere));
-	
+	int i;
+	for(i=0;i<TAMANHO;i++)
+	{
+		printf("Entre cm o %d ° valor:",i+1);
+		scanf("%d",&vet[i]);
+	}
+	ordena(vet);
 	system("pause");
 }

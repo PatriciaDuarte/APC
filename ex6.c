@@ -1,34 +1,33 @@
-//Aluna:Patrícia Duarte da Silva
-//Exercicio6
+//Patrícia Duarte da Silva
+//Ex. 6
 #include<stdio.h>
 #include<stdlib.h>
-#include<locale.h>        
+#include<locale.h>
+#define TAMANHO 10
 
-int potencia(int b,int e);
-
-int potencia(int b,int e)
+void calcula(float *raio, float *altura);
+void calcula(float *raio, float *altura)
 {
-	if(e==0)
-		 return 1;
-	else
-		return b*potencia(b,e-1);
+	float areaDoCilindro, litroDeTinta, lataDeTinta,resultado;
+	
+	areaDoCilindro =  (2*3.14)*(*raio)*(*altura + *raio);
+	litroDeTinta = areaDoCilindro/3;
+	lataDeTinta = litroDeTinta/5;
+	resultado = lataDeTinta*20;
+	printf("\n\nQuantidade de latas de tintas necessárias:%f",litroDeTinta);
+	printf("\nCusto para pintar tanques cilíndricos de combustível:%f\n",resultado);
+	
+	
 }
-
 main()
 {
-	int base, expoente;
-	
 	setlocale(LC_ALL,"Portuguese");
+	float r,h;
 	
-	printf("**Entre com numeros INTEIROS(Maior que 0)**");
-	printf("\n\nBase:");
-	scanf("%d",&base);
-
-	printf("Expoente:");
-	scanf("%d",&expoente);
-	
-	printf("\nResultado da potência:%d \n\n",potencia(base,expoente));
+	printf("\nRaio:");
+	scanf("%f",&r);
+	printf("\nAltura:");
+	scanf("%f",&h);
+	calcula(&r,&h);
 	system("pause");
-	
 }
-

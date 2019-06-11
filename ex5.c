@@ -1,45 +1,33 @@
-//Aluna:Patrícia Duarte da Silva
-//Exercicio5
 #include<stdio.h>
 #include<stdlib.h>
-#include<locale.h>          
+#include<locale.h>
+#include<math.h>   /*VOLTAR NESSA QUESTÃO, NÃO ESTÁ RETORNANDO O RESULTADO CORRETO*/
 
-int buscaR(int x, int v[], int n);
+void distancia(int *X1, int *Y1, int *X2, int *Y2, int *resultado);
 
-int buscaR(int x, int v[], int n)
+void distancia(int *X1, int *Y1, int *X2, int *Y2, int *resultado)
 {
-	if(n==0) return -1;
-	else
-	if(x==v[n-1]) return n-1;
-	else
-	return buscaR(x,v,n-1);
-	
-	
+	float aux;
+	*resultado = pow(*X2-*X1,2)+ pow(*Y2-*Y1,2);
+	aux = (float)sqrt(*resultado);
+	printf("\nResultado: %f .\n",aux);
 }
 
 main()
 {
-	int busca,i, TAMANHO;
+	int x1,x2,y1,y2,res;
 	
-	setlocale(LC_ALL,"Portuguese");
+	printf("\n PLANO P\n");
+	printf("X1:");
+	scanf("%d",&x1);
+	printf("Y1:");
+	scanf("%d",&y1);
+	printf("\n PLANO Q\n");
+	printf("X2:");
+	scanf("%d",&x2);
+	printf("Y2:");
+	scanf("%d",&y2);
 	
-	printf("Digite o tamanho do vetor:");
-	scanf("%d",&TAMANHO);
-	
-	int valor[TAMANHO];
-	
-	for(i=0;i<TAMANHO;i++)
-	{
-		printf("Digite o %d° valor do vetor:",i+1);
-		scanf("%d",&valor[i]);
-	}
-	
-	printf("Digite o valor para busca:");
-	scanf("%d",busca);
-	
-	printf("\n\n\n BUSCA OK: %d",buscaR(busca,valor,TAMANHO));
-	
+	distancia(&x1,&y1,&x2,&y2,&res);
 	system("pause");
-	
 }
-
