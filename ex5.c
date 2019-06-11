@@ -1,33 +1,47 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<locale.h>
-#include<math.h>   /*VOLTAR NESSA QUEST√O, N√O EST¡ RETORNANDO O RESULTADO CORRETO*/
+/*
+Alunos: Patr√≠cia Duarte e M√°rio Victor
+Exercicio5
+*/
 
-void distancia(int *X1, int *Y1, int *X2, int *Y2, int *resultado);
+#include <stdio.h> 
+#include <stdlib.h>
+#include <locale.h>
 
-void distancia(int *X1, int *Y1, int *X2, int *Y2, int *resultado)
-{
-	float aux;
-	*resultado = pow(*X2-*X1,2)+ pow(*Y2-*Y1,2);
-	aux = (float)sqrt(*resultado);
-	printf("\nResultado: %f .\n",aux);
-}
+struct time 
+{ 
+   int hora; 
+   int min; 
+   int seg; 
+}; 
+struct time tempo;
 
-main()
-{
-	int x1,x2,y1,y2,res;
-	
-	printf("\n PLANO P\n");
-	printf("X1:");
-	scanf("%d",&x1);
-	printf("Y1:");
-	scanf("%d",&y1);
-	printf("\n PLANO Q\n");
-	printf("X2:");
-	scanf("%d",&x2);
-	printf("Y2:");
-	scanf("%d",&y2);
-	
-	distancia(&x1,&y1,&x2,&y2,&res);
-	system("pause");
+void seg_tempo(int qtd_seg)
+{ 
+   int aux; 
+   aux = qtd_seg; 
+   tempo.seg = aux % 60; 
+   aux /= 60;    
+   tempo.min = aux % 60; 
+   tempo.hora = aux / 60; 
+   printf("%d segundos equivalem a %d:%.2d:%.2d horas\n", qtd_seg, tempo.hora, tempo.min, tempo.seg);    
+} 
+
+int tempo_seg()
+{ 
+   int qtd=0; 
+   printf("Informe a hora (hh:mm:ss): "); 
+   scanf("%d:%d:%d", &tempo.hora, &tempo.min, &tempo.seg); 
+   qtd = ((tempo.hora * 60) + tempo.min) * 60 + tempo.seg; 
+   return qtd; 
+} 
+
+int main()
+{ 
+    
+   int num_seg; 
+   printf("Informe a quantidade de segundos: "); 
+   scanf("%d", &num_seg); 
+   seg_tempo(num_seg); 
+   printf("Quantidade de segundos: %d\n", tempo_seg()); 
+   return 0; 
 }
