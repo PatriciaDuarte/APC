@@ -1,0 +1,20 @@
+Universidade Federal de Goiás - Catalão
+Patrícia Duarte da Silva - 201514322
+Ana Paula Soengas Rabelo de Moraes - 201601499
+Trabalho de APC, 25/10/2016 1º Trabalho - Respostas
+
+1. Sim, existe.
+
+1ª Tarefa - Não há ganhos sobre a memória utilizada. Mas o código pode ser considerado o mais fácil de ser manipulado.
+
+2ª Tarefa - Há um ganho de memória utilizada, nos campos, pois logo que termina um campo o outro já é escrito, entretanto os registros possuem o mesmo tamanho o que não gera um ganho final. O código tem uma complexidade mediana.
+
+3ª Tarefa - Há um ganho total na memória, os campos seguem a ideia anterior e quando um registro acaba o próximo já é escrito, aproveitando o máximo de espaço no arquivo.
+
+2. Está correto, pois nesse arquivo é informado as representações usadas.
+A relação disso entre as representações é que o formato do arquivo de registros de tamanho fixo são little-endian.
+No little-endian os bytes de maior ordem de um número serão armazenados nos menores endereços, e os de menor ordem nos maiores endereços. 
+E no big-endian o byte de menor ordem do número é armazenado nos menores endereçoes, e os de maior ordem nos maiores endereços.
+
+3. Para se economizar o máximo de espaço na memória, pois uma variável inteira ocupa 4 bytes, logo ocuparia 4 caracteres, os números a serem representados não passam de 255 tornando esse método possível, ocupando apenas 1 byte ou 1 caractere. 
+Não ajuda, caso os valores estivessem salvos como tipo inteiro, não correria o risco de aparecer o caractere porém salvos como ASCII caso apareça a "|" ele não será lido de forma indesejada.
