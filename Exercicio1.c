@@ -1,47 +1,54 @@
-//Autora: Patricia Duarte
-//Exercicio1-funcao
+//Autora: Patrícia Duarte da Silva(201514322)
+
 #include <stdio.h>
 #include <stdlib.h>
+int i;
+char nomeDoArquivo[100];
+unsigned char impressaoChar[16]; 
+FILE *arquivo , *arquivoDuping;
 
-int numero1,numero2,numero3;
-
-
-int dobro1 (int num1)
+main() 
 {
-
-    return num1 *2;
-    
+	printf("Por favor, digite o nome do arquivo: ");
+	gets(nomeDoArquivo);
+	
+	if (arquivo = fopen(nomeDoArquivo, "rb"))
+		{
+			printf("  \t\t\t  _______________________________  ");
+			printf("\n\t\t\t |Arquivo aberto com sucesso!!!! |");
+			printf("\n\t\t\t |_______________________________| \n\n\n\n");
+		}else
+		 {
+			printf("  \t\t\t  _______________________________ ");
+			printf("\n\t\t\t |  Erro ao abrir o arquivo!!!!  |");
+			printf("\n\t\t\t |_______________________________| \n\n\n\n");
+			system("pause");
+			return 0;
+		}
+		while (!feof(arquivo))
+		{
+			fread(impressaoChar, sizeof(impressaoChar), 1, arquivo); 
+			
+				for (i = 0; i < 16; i++) 
+				{
+					printf("%02X ", impressaoChar[i]);
+					fprintf(arquivoDuping, "%02X ", impressaoChar[i]);
+				}
+					printf("    ");
+					fprintf(arquivoDuping, "    ");
+					
+				for ( i = 0; i < 16; i++) 
+				{
+					if (isprint(impressaoChar[i]) && impressaoChar[i] != 0x09)
+					 { 
+						printf("%c ", impressaoChar[i]);					
+						fprintf(arquivoDuping, "%c ", impressaoChar[i]);
+					}
+				}	
+					printf("\n");
+					fprintf(arquivoDuping, "\n");
+		}
+	fclose(arquivo);
+	fclose(arquivoDuping);
+	system("pause");
 }
-int dobro2(int num2)
-{
-	return num2*2;
-}
-int dobro3(int num3)
-{
-	return num3*2;
-}
-
-
-int main()
-{
-    printf("Digite o primeiro numero:");
-    scanf("%d",&numero1);
-    printf("Digite o segundo numero:");
-    scanf("%d", &numero2);
-    printf("Digite o terceiro numero:");
-    scanf("%d", &numero3);
-
- 	printf("\n\nDobro dos valores:\n\n");
-    numero1 = dobro1(numero1);
-    printf("Numero 1: %d\n",numero1 );
-  
-    numero2 = dobro2(numero2);
-    printf("Numero 2: %d\n",numero2);
-    
-    
-    numero3 = dobro3(numero3);
-    printf("Numero 3: %d\n", numero3);
-    
-  
-}
-
