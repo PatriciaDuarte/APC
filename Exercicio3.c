@@ -1,27 +1,32 @@
-//Autora: Patricia Duarte(201514322)
-//Exercicio 3,funcao
-
-#include<stdio.h>
-#include<stdlib.h>
-
-int base,expoente;
-
-void calculaPotencia(int b,int e)
+//Autora: Patrícia Duarte da Silva(201514322)
+#include <stdio.h>   
+int main(void)
 {
-	int i,auxiliar=1;
-	for(i=0;i<e;i++)
-	{
-    	auxiliar = auxiliar* b;
+   int mat[10][10], maior,i,j; 
+   
+   
+   for (i=0; i<10; i++)
+    {
+		for (j=0; j<10; j++)
+		{
+		   	printf("Digite ELEMENTO da linha %d, coluna %d da matriz: ",i+1,j+1);
+ 			scanf("%d", &mat[i][j]);
+		 }
 	}
-	printf("\nPotencia: %d",auxiliar);
-}
-
-main()
-{
-	printf("De a base: ");
-	scanf("%d",&base);
-	printf("\nDe o expoente:");
-	scanf("%d",&expoente);
-    calculaPotencia(base,expoente);
-	return 0;
+    		 	   
+	   maior=mat[0][0];
+	   for(i=0;i<=9;i++)
+	   {
+	 	  for(j=0;j<=9;j++)
+		   {
+	   			if(maior<mat[i][j])
+				{
+	  	   	 		maior=mat[i][j];
+				 }
+ 			}
+		}
+   printf("\nMaior elemento da matriz: %.1d\n", maior);	
+   printf("\n\n")	 ;
+   system("pause");
+   return 0;
 }

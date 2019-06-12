@@ -1,31 +1,36 @@
-//Autora: Patrícia Duarte
-//Exercicio: Numero2, funcao
+//Autora: Patrícia Duarte da Silva(201514322)
 #include <stdio.h>
-#include <stdlib.h>
-
-int numero1, numero2;
-
-
-int verifica(int num1)
+main()
 {
-  if(num1>0)
-	{
-		return 1;
-	}else return 0;
-}
-
-int soma(int num1, int num2)
-{
-  return num1 + num2;
-}
-
-int main()
-{
-    printf("Digite o primeiro numero:");
-    scanf("%d",&numero1);
-    printf("Digite o segundo numero:");
-    scanf("%d",&numero2);
-    printf("Verificando se numero e negativo ou positivo..., o mesmo eh:  %d ", verifica(numero1));
-    printf("\nSoma dos dois valores: %d",soma(numero1,numero2));
-    return 0;
-}
+ int lin,col,soma= 0;
+ int mat[4][4];
+ 
+ 	//Entrada de valores
+ 	for (lin=0; lin<=3; lin++)
+ 	{
+ 		for (col=0; col<=3;col++)
+		{
+ 			printf("Digite ELEMENTO da linha %d, coluna %d da matriz: ",lin+1,col+1);
+ 			scanf("%d", &mat[lin][col]);
+		}
+	 }
+	 //Impressão dos valores
+ 	printf("\n\n*****Matriz*****\n\n");
+ 	for (lin=0;lin<=3;lin++)
+	 {
+		 for (col=0;col<=3;col++)
+			 printf("%d\t",mat[lin][col]);
+			 printf("\n\n"); 
+ }
+ 
+  printf("\n\nDiagonal principal\n\n");
+ for (lin=0; lin<=3;lin++)
+ 		for (col = lin; col < 4; col++)
+	   {
+			soma += mat[lin][col];
+		}
+ 	
+ printf("Soma da diagonal principal:%d\n\n",soma);
+ system("pause");
+ return 0;
+} 

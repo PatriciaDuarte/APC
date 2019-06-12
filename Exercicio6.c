@@ -1,43 +1,34 @@
-//Autora: Patricia Duarte(201514322)
-//Exercicio: 6,funçoes
-
-#include<stdio.h>
-#include<stdlib.h>
-
-int indice;
-
-void valor(int i)
-{
-	
-	printf("F: %d\nG: %d  ",F(indice),G( indice));
-	
-}
-
-int G(int i)
-{
-	if(i== 1)return 1;
-	else
-	if(i==2)return 2;
-	else
-	return G(i-1)+(3*F(i-2));
-}
-
-int F(int i)
-{
-
-	if(i==1)return 2;
-	else 
-	if(i==2)return 1;
-	else
-	return (2*F(i-1))+G(i - 2);
-}
+//Autora: Patrícia Duarte da Silva(201514322)
+#include <stdio.h> 
 
 int main()
 {
-  while(indice<1)
-  {
-	printf("Entre com um índice maior que 1: ");
-	scanf("%d",&indice);
-	valor(indice);
-  }
+	converter();//aqui está chamando a função
+	return(0);
+}
+
+	//Função converte para binário
+	int converter()
+{
+	int decimal,contador,quociente[80],resto[80]; 
+	contador=0;               
+	printf("Digite o numero decimal que serah passado para binario:\n");
+	scanf("%d", &decimal);
+	printf("%d em binarios: ",decimal);
+ 	 while (decimal != 1)
+  		{    
+  	 		quociente[contador]= decimal / 2;  
+  			 resto[contador] = decimal % 2; 
+  			 decimal=quociente[contador];      
+  	 		contador++;
+  	    }
+    
+ 	 while (contador>=0)
+  		{  
+   		  if (quociente[contador] == 1) printf("1%d",resto[contador]);
+          else printf("%d",resto[contador]);  
+   			contador--;
+ 		 }
+printf("\n");
+return(0);
 }
